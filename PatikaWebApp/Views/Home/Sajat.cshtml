@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Gyógyszerek adatai";
+}
+<center>
+<h1>@ViewData["Title"]</h1>
+</center>
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th>Név</th>
+            <th>Hatóanyag</th>
+            <th>Vényköteles</th>            
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-area="" asp-controller="Home" asp-action="Gyogyszer" asp-route-id="@item.Id">@item.Nev</a>
+                    </td>
+                    <td>@item.Hatoanyag</td>
+                    <td><input type="checkbox" checked="@item.Venykoteles"/></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
